@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FormErrors from "../FormErrors";
-import Validate from "../utility/FormValidation";
+import Validate from "../utils/FormValidation";
 import { Auth } from 'aws-amplify';
 
 class ForgotPasswordVerification extends Component {
@@ -24,9 +24,9 @@ class ForgotPasswordVerification extends Component {
   };
 
   passwordVerificationHandler = async event => {
+    console.log("passwordVerificationHandler");
     event.preventDefault();
 
-    // Form validation
     this.clearErrorState();
     const error = Validate(event, this.state);
     if (error) {
@@ -35,7 +35,6 @@ class ForgotPasswordVerification extends Component {
       });
     }
 
-    // AWS Cognito integration here
     try {
       await Auth.forgotPasswordSubmit(
         this.state.email,
@@ -43,12 +42,12 @@ class ForgotPasswordVerification extends Component {
         this.state.newpassword
       );
       this.props.history.push("/changepasswordconfirmation");
-    }catch(error) {
+    } catch (error) {
       console.log(error);
     }
   };
 
-  onInputChange = event => {
+  handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
     });
@@ -57,8 +56,8 @@ class ForgotPasswordVerification extends Component {
 
   render() {
     return (
-      <section className="section auth">
-        <div className="container">
+      <section >
+        <div >
           <h1>Set new password</h1>
           <p>
             Please enter the verification code sent to your email address below,
@@ -67,56 +66,45 @@ class ForgotPasswordVerification extends Component {
           <FormErrors formerrors={this.state.errors} />
 
           <form onSubmit={this.passwordVerificationHandler}>
-            <div className="field">
-              <p className="control">
-                <input
-                  type="text"
-                  className="input"
-                  id="verificationcode"
-                  aria-describedby="verificationCodeHelp"
-                  placeholder="Enter verification code"
-                  value={this.state.verificationcode}
-                  onChange={this.onInputChange}
-                />
-              </p>
+            <div className="panel_row">
+              <span>verification code</span>
+              <input
+                type="text"
+                className="input"
+                id="verificationcode"
+                aria-describedby="verificationCodeHelp"
+                placeholder="Enter verification code"
+                value={this.state.verificationcode}
+                onChange={this.handleChange}
+              />
             </div>
-            <div className="field">
-              <p className="control has-icons-left">
-                <input 
-                  className="input" 
-                  type="email"
-                  id="email"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter email"
-                  value={this.state.email}
-                  onChange={this.onInputChange}
-                />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-envelope"></i>
-                </span>
-              </p>
+            <div className="panel_row">
+              <span>email</span>
+              <input
+                className="input"
+                type="email"
+                id="email"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
             </div>
-            <div className="field">
-              <p className="control has-icons-left">
-                <input
-                  type="password"
-                  className="input"
-                  id="newpassword"
-                  placeholder="New password"
-                  value={this.state.newpassword}
-                  onChange={this.onInputChange}
-                />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-lock"></i>
-                </span>
-              </p>
+            <div className="panel_row">
+              <span>password</span>
+              <input
+                type="password"
+                className="input"
+                id="newpassword"
+                placeholder="New password"
+                value={this.state.newpassword}
+                onChange={this.handleChange}
+              />
             </div>
-            <div className="field">
-              <p className="control">
-                <button className="button is-success">
-                  Submit
+            <div className="panel_row">
+              <button>
+                Submit
                 </button>
-              </p>
             </div>
           </form>
         </div>

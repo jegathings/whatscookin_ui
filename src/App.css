@@ -1,7 +1,43 @@
 h1 {
   font-size: 2em;
 }
-
+.title{
+  display: flex;
+  justify-content: center;
+}
+nav{
+  display:flex;
+  flex-direction: row;
+  justify-items: right;
+  align-items: right;
+  height: 50px;
+  border-style: solid;
+  border-color: black;
+}
+.navbar_item{
+  display:flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: black;
+}
+.navbar_sub_item{
+  border-style: solid;
+  border-color:red;
+}
+.panel_row{
+  display:flex;
+  flex-direction: column;
+}
+.panel_row input {
+  width: 200px;
+}
+.panel_row button{
+  width: 205px;
+}
+.button{
+  width: 50px;
+  max-height: 20px;
+}
 .product-title {
   font-weight: bold;
   font-size: 1.2em;
@@ -22,28 +58,6 @@ h1 {
 .product-edit-icon:hover {
   opacity: 1;
 }
-
-.navbar, .navbar-end, .navbar-menu, .navbar-start {
-  align-items: stretch !important;
-  display: flex !important;
-}
-
-.navbar-menu {
-  flex-grow: 1 !important;
-  flex-shrink: 0 !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-}
-
-.navbar-item {
-  display: flex !important;
-}
-
-.navbar-end {
-  justify-content: flex-end !important;
-  margin-left: auto !important;
-}
-
 .features {
   padding-bottom: 3em;
 }

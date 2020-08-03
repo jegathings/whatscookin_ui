@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FormErrors from "../FormErrors";
-import Validate from "../utility/FormValidation";
+import Validate from "../utils/FormValidation";
 import { Auth } from "aws-amplify";
 
 class Register extends Component {
@@ -62,7 +62,7 @@ class Register extends Component {
     }
   }
 
-  onInputChange = event => {
+  handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
     });
@@ -77,76 +77,58 @@ class Register extends Component {
           <FormErrors formerrors={this.state.errors} />
 
           <form onSubmit={this.handleSubmit}>
-            <div className="field">
-              <p className="control">
-                <input 
-                  className="input" 
-                  type="text"
-                  id="username"
-                  aria-describedby="userNameHelp"
-                  placeholder="Enter username"
-                  value={this.state.username}
-                  onChange={this.onInputChange}
-                />
-              </p>
+            <div className="panel_row">
+              <span>username</span>
+              <input
+                className="input"
+                type="text"
+                id="username"
+                aria-describedby="userNameHelp"
+                value={this.state.username}
+                onChange={this.handleChange}
+              />
             </div>
-            <div className="field">
-              <p className="control has-icons-left has-icons-right">
-                <input 
-                  className="input" 
-                  type="email"
-                  id="email"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter email"
-                  value={this.state.email}
-                  onChange={this.onInputChange}
-                />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-envelope"></i>
-                </span>
-              </p>
+            <div className="panel_row">
+              <span>email</span>
+              <input
+                className="input"
+                type="email"
+                id="email"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
             </div>
-            <div className="field">
-              <p className="control has-icons-left">
-                <input 
-                  className="input" 
-                  type="password"
-                  id="password"
-                  placeholder="Password"
-                  value={this.state.password}
-                  onChange={this.onInputChange}
-                />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-lock"></i>
-                </span>
-              </p>
+            <div className="panel_row">
+              <span>password</span>
+              <input
+                className="input"
+                type="password"
+                id="password"
+                placeholder="Password"
+                value={this.state.password}
+                onChange={this.handleChange}
+              />
             </div>
-            <div className="field">
-              <p className="control has-icons-left">
-                <input 
-                  className="input" 
-                  type="password"
-                  id="confirmpassword"
-                  placeholder="Confirm password"
-                  value={this.state.confirmpassword}
-                  onChange={this.onInputChange}
-                />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-lock"></i>
-                </span>
-              </p>
+            <div className="panel_row">
+              <span>confirm password</span>
+              <input
+                className="input"
+                type="password"
+                id="confirmpassword"
+                placeholder="Confirm password"
+                value={this.state.confirmpassword}
+                onChange={this.handleChange}
+              />
             </div>
-            <div className="field">
-              <p className="control">
-                <a href="/forgotpassword">Forgot password?</a>
-              </p>
-            </div>
-            <div className="field">
-              <p className="control">
-                <button className="button is-success">
-                  Register
+            <div className="panel_row">
+              <button className="button is-success">
+                Register
                 </button>
-              </p>
+            </div>
+            <div className="panel_row">
+              <a href="/forgotpassword">Forgot password?</a>
             </div>
           </form>
         </div>

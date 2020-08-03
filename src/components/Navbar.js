@@ -8,60 +8,54 @@ export default class Navbar extends Component {
       Auth.signOut();
       this.props.auth.setAuthStatus(false);
       this.props.auth.setUser(null);
-    }catch(error) {
+    } catch (error) {
       console.log(error.message);
     }
   }
   render() {
     return (
-      <nav className="navbar" role="navigation" aria-label="main navigation">
-        <div className="navbar-brand">
-          <a className="navbar-item" href="/">
-            <img src="hexal-logo.png" width="112" height="28" alt="hexal logo" />
-          </a>
+      <div>
+        <div className="title">
+          <h1>Whats Cookin</h1>
         </div>
-
-        <div id="navbarBasicExample" className="navbar-menu">
-          <div className="navbar-start">
-            <a href="/" className="navbar-item">
-              Home
-            </a>
-            <a href="/products" className="navbar-item">
-              Products
-            </a>
-            <a href="/admin" className="navbar-item">
-              Admin
-            </a>
+        <nav >
+          <div className="navbar_sub_item">
+            {
+              this.props.auth.isAuthenticated && (
+                <a href="/create" className="button is-light">
+                  Create Recipe
+                </a>
+              )
+            }
           </div>
-
-          <div className="navbar-end">
-            <div className="navbar-item">
+          <div className="navbar_item">
+            <div className="navbar_sub_item">
               {this.props.auth.isAuthenticated && this.props.auth.user && (
-                <p>
+                <div >
                   Hello {this.props.auth.user.username}
-                </p>
+                </div>
               )}
-              <div className="buttons">
-                {!this.props.auth.isAuthenticated && (
-                  <div>
-                    <a href="/register" className="button is-primary">
-                      <strong>Register</strong>
-                    </a>
-                    <a href="/login" className="button is-light">
-                      Log in
-                    </a>
-                  </div>
-                )}
-                {this.props.auth.isAuthenticated && (
-                  <a href="/" onClick={this.handleLogOut} className="button is-light">
-                    Log out
+            </div>
+            <div className="navbar_sub_item">
+              {!this.props.auth.isAuthenticated && (
+                <div>
+                  <a href="/register">
+                    <strong>Register</strong>
                   </a>
-                )}
-              </div>
+                  <a href="/login" className="button is-light">
+                    Log in
+                    </a>
+                </div>
+              )}
+              {this.props.auth.isAuthenticated && (
+                <a href="/" onClick={this.handleLogOut} className="button is-light">
+                  Log out
+                </a>
+              )}
             </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     )
   }
 }

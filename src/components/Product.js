@@ -1,5 +1,4 @@
 import React, { Component, Fragment }  from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class ProductAdmin extends Component {
 
@@ -28,7 +27,7 @@ export default class ProductAdmin extends Component {
           this.props.isAdmin && 
           <Fragment>
             <a href="/" onClick={this.handleProductEdit} className="product-edit-icon">
-              <FontAwesomeIcon icon="edit" />
+              {/* <FontAwesomeIcon icon="edit" /> */}
             </a>
             <button onClick={event => this.props.handleDeleteProduct(this.props.id, event)} className="delete"></button>
           </Fragment>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FormErrors from "../FormErrors";
-import Validate from "../utility/FormValidation";
+import Validate from "../utils/FormValidation";
 import { Auth } from 'aws-amplify';
 
 class ForgotPassword extends Component {
@@ -24,7 +24,6 @@ class ForgotPassword extends Component {
   forgotPasswordHandler = async event => {
     event.preventDefault();
 
-    // Form validation
     this.clearErrorState();
     const error = Validate(event, this.state);
     if (error) {
@@ -33,11 +32,10 @@ class ForgotPassword extends Component {
       });
     }
 
-    // AWS Cognito integration here
     try {
       await Auth.forgotPassword(this.state.email);
       this.props.history.push('/forgotpasswordverification');
-    }catch(error) {
+    } catch (error) {
       console.log(error);
     }
   }
@@ -51,8 +49,8 @@ class ForgotPassword extends Component {
 
   render() {
     return (
-      <section className="section auth">
-        <div className="container">
+      <section className="">
+        <div className="">
           <h1>Forgot your password?</h1>
           <p>
             Please enter the email address associated with your account and we'll
@@ -61,33 +59,20 @@ class ForgotPassword extends Component {
           <FormErrors formerrors={this.state.errors} />
 
           <form onSubmit={this.forgotPasswordHandler}>
-            <div className="field">
-              <p className="control has-icons-left has-icons-right">
-                <input
-                  type="email"
-                  className="input"
-                  id="email"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter email"
-                  value={this.state.email}
-                  onChange={this.onInputChange}
-                />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-envelope"></i>
-                </span>
-              </p>
+            <div className="panel_row">
+              <span>email</span>
+              <input
+                type="email"
+                className="input"
+                id="email"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+                value={this.state.email}
+                onChange={this.onInputChange}
+              />
             </div>
-            <div className="field">
-              <p className="control">
-                <a href="/forgotpassword">Forgot password?</a>
-              </p>
-            </div>
-            <div className="field">
-              <p className="control">
-                <button className="button is-success">
-                  Submit
-                </button>
-              </p>
+            <div >
+              <button>Submit</button>
             </div>
           </form>
         </div>
