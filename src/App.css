@@ -14,6 +14,12 @@ nav{
   border-style: solid;
   border-color: black;
 }
+.button{
+  width: 100px;
+  height: 20px;
+  border-style: solid;
+  border-color: black;
+}
 .navbar_item{
   display:flex;
   flex-direction: column;
@@ -26,20 +32,27 @@ nav{
 }
 .panel_row{
   display:flex;
+  flex-direction: row;
+}
+.panel_col {
+  display:flex;
   flex-direction: column;
 }
-.panel_row input, textarea{
+.panel_col input, textarea{
   width: 800px;
 }
-.panel_row button{
+.panel_col button{
   display: flex;
   justify-content: center;
   align-items: center;
   width: 205px;
 }
 .button{
-  width: 50px;
-  max-height: 20px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  max-height: 30px;
 }
 .product-title {
   font-weight: bold;

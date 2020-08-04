@@ -5,9 +5,12 @@ export default class Navbar extends Component {
   handleLogOut = async event => {
     event.preventDefault();
     try {
+      console.log("Start Logout");
       Auth.signOut();
       this.props.auth.setAuthStatus(false);
       this.props.auth.setUser(null);
+      console.log("Auth",this.props.auth);
+      console.log("End Logout");
     } catch (error) {
       console.log(error.message);
     }
@@ -16,7 +19,7 @@ export default class Navbar extends Component {
     return (
       <div>
         <div className="title">
-          <h1>Whats Cookin</h1>
+          <h1><a href="/">Whats Cookin</a></h1>
         </div>
         <nav >
           <div className="navbar_sub_item">
@@ -48,9 +51,7 @@ export default class Navbar extends Component {
                 </div>
               )}
               {this.props.auth.isAuthenticated && (
-                <a href="/" onClick={this.handleLogOut} className="button is-light">
-                  Log out
-                </a>
+                <div className="button" onClick={this.handleLogOut}>logout</div>
               )}
             </div>
           </div>

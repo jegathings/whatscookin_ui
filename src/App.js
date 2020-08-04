@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
+import ViewRecipe from './components/ViewRecipe'
 import Recipe from './components/Recipe';
-import ProductAdmin from './components/ProductAdmin';
+import EditRecipe from './components/EditRecipe';
 import LogIn from './components/auth/LogIn';
 import Register from './components/auth/Register';
 import ForgotPassword from './components/auth/ForgotPassword';
@@ -63,7 +64,8 @@ class App extends Component {
             <Switch>
               <Route exact path="/" render={(props) => <Home {...props} auth={authProps} />} />
               <Route exact path="/create" render={(props) => <Recipe method="POST" {...props} auth={authProps} formData={{ ...{}, formTitle: "Create Recipe" }}/>} />
-              <Route exact path="/edit/:id" render={(props) => <Recipe method="PUT" {...props} auth={authProps} formData={{ ...{}, formTitle: "Edit    Recipe" }}/>} />
+              <Route exact path="/edit/:recipe_id" render={(props) => <EditRecipe method="PUT" {...props} auth={authProps} formData={{ ...{}, formTitle: "Edit    Recipe" }}/>} />
+              <Route exact path="/view/:recipe_id" render={(props) => <ViewRecipe {...props} auth={authProps} />} />
               <Route exact path="/login" render={(props) => <LogIn {...props} auth={authProps} />} />
               <Route exact path="/register" render={(props) => <Register {...props} auth={authProps} />} />
               <Route exact path="/forgotpassword" render={(props) => <ForgotPassword {...props} auth={authProps} />} />

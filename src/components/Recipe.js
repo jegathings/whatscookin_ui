@@ -12,6 +12,7 @@ export default (props) => {
     }
 
     const handleCreate = async (data) => {
+        console.log("Create recipe",{ ...data, email: props.auth.user.attributes.email });
         await fetch(`${config.api.invokeUrl}${config.app}`, {
             method: 'POST',
             headers: {
@@ -28,7 +29,7 @@ export default (props) => {
         <Fragment>
             <h3>{formData.formTitle}</h3>
             <div className="container">
-                <div className="panel_row">
+                <div className="panel_col">
                     <label htmlFor="name">Name</label><br />
                     <input
                         type="text"
@@ -38,7 +39,7 @@ export default (props) => {
                         onChange={handleChange}
                     /><br />
                 </div>
-                <div className="panel_row">
+                <div className="panel_col">
                     <label htmlFor="description">Description</label><br />
                     <input
                         type="text"
@@ -47,7 +48,7 @@ export default (props) => {
                         onChange={handleChange}
                     /><br />
                 </div>
-                <div className="panel_row">
+                <div className="panel_col">
                     <label htmlFor="ingredients">Ingredients</label><br />
                     <textarea
                         name="ingredients"
@@ -55,7 +56,7 @@ export default (props) => {
                         onChange={handleChange}
                     /><br />
                 </div>
-                <div className="panel_row">
+                <div className="panel_col">
                     <label htmlFor="directions">Directions</label><br />
                     <textarea
                         name="directions"
@@ -63,7 +64,7 @@ export default (props) => {
                         onChange={handleChange}
                     /><br />
                 </div>
-                <div className="panel_row">
+                <div className="panel_col">
                     <label htmlFor="images">Image</label><br />
                     <input
                         type="text"
@@ -72,7 +73,7 @@ export default (props) => {
                         onChange={handleChange}
                     /><br />
                 </div>
-                <div className="panel_row">
+                <div className="panel_col">
                     <label htmlFor="url">URL</label><br />
                     <input
                         type="text"
@@ -81,7 +82,7 @@ export default (props) => {
                         onChange={handleChange}
                     /><br />
                 </div>
-                <div className="panel_row">
+                <div className="panel_col">
                     <button
                         onClick={() => {
                             console.log("Clicked Submit");
