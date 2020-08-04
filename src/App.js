@@ -62,8 +62,8 @@ class App extends Component {
             <Navbar auth={authProps} />
             <Switch>
               <Route exact path="/" render={(props) => <Home {...props} auth={authProps} />} />
-              <Route exact path="/create" render={(props) => <Recipe auth={authProps} formData={{ ...{}, formTitle: "Create New Recipe" }}/>} />
-              <Route exact path="/admin" render={(props) => <ProductAdmin {...props} auth={authProps} />} />
+              <Route exact path="/create" render={(props) => <Recipe method="POST" {...props} auth={authProps} formData={{ ...{}, formTitle: "Create Recipe" }}/>} />
+              <Route exact path="/edit/:id" render={(props) => <Recipe method="PUT" {...props} auth={authProps} formData={{ ...{}, formTitle: "Edit    Recipe" }}/>} />
               <Route exact path="/login" render={(props) => <LogIn {...props} auth={authProps} />} />
               <Route exact path="/register" render={(props) => <Register {...props} auth={authProps} />} />
               <Route exact path="/forgotpassword" render={(props) => <ForgotPassword {...props} auth={authProps} />} />

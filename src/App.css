@@ -28,10 +28,13 @@ nav{
   display:flex;
   flex-direction: column;
 }
-.panel_row input {
-  width: 200px;
+.panel_row input, textarea{
+  width: 800px;
 }
 .panel_row button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 205px;
 }
 .button{
