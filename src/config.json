@@ -1,6 +1,6 @@
 {
   "api": { 
-    "invokeUrl": "http://localhost:3000/"
+    "invokeUrl": "https://ju34sx7fnl.execute-api.us-east-1.amazonaws.com/dev/"
   },
   "app":"recipes",
   "users":"users",
