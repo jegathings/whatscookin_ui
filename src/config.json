@@ -3,6 +3,7 @@
     "invokeUrl": "http://localhost:3000/"
   },
   "app":"recipes",
+  "users":"users",
   "cognito": {
     "REGION": "us-east-1",
     "USER_POOL_ID": "us-east-1_CpG0lZfvc",

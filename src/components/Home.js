@@ -7,8 +7,10 @@ export default function Home(props) {
   const getInfo = async () => {
     console.log("start Home getInfo");
     console.log("Is authenticated", props.auth.isAuthenticated);
-    console.log("Url", `${config.api.invokeUrl}${config.app}`);
-    const response = await fetch(`${config.api.invokeUrl}${config.app}`)
+    const email = props.auth.user.attributes.email;
+    console.log("Email",email);
+    console.log("Url", `${config.api.invokeUrl}${config.users}/${email}`);
+    const response = await fetch(`${config.api.invokeUrl}${config.users}/${email}`)
       .catch((error) => console.log(error))
     const recipes = await response.json();
     console.log("Recipes", recipes);
@@ -17,7 +19,8 @@ export default function Home(props) {
   }
 
   React.useEffect(() => {
-    getInfo()
+    if(props.auth.isAuthenticated)
+      getInfo()
   }, []);
 
   const handleDelete = async (recipe) => {
@@ -70,7 +73,7 @@ export default function Home(props) {
                 </div>
               )
             })
-            : "...loading"
+            :""
         }
       </div>
     </Fragment>
