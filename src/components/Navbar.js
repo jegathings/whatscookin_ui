@@ -1,5 +1,5 @@
 
-import { useHistory} from 'react-router';
+import { useHistory } from 'react-router';
 import React, { Component } from 'react';
 import { Auth } from 'aws-amplify';
 
@@ -11,7 +11,7 @@ export default class Navbar extends Component {
       Auth.signOut();
       this.props.auth.setAuthStatus(false);
       this.props.auth.setUser(null);
-      console.log("Auth",this.props.auth);
+      console.log("Auth", this.props.auth);
       console.log("Props", this.props);
       console.log("End Logout");
       window.location.reload();
@@ -23,22 +23,25 @@ export default class Navbar extends Component {
     return (
       <div>
         <div className="title">
-          <h1><a href="/">Whats Cookin</a></h1>
+          <h1>Whats Cookin</h1>
+          <h3>Bug Alert Hit refresh to force browser to reload.</h3>
         </div>
         <nav className="navbar_container">
-          <div className="navbar_item">
+          <div >
             {
               this.props.auth.isAuthenticated && (
-                <a href="/create" className="create_button">
-                  Create Recipe
+                <div className="button">
+                  <a href="/create" className="create_button">
+                    Create Recipe
                 </a>
+                </div>
               )
             }
           </div>
           <div className="navbar_item">
             <div >
               {this.props.auth.isAuthenticated && this.props.auth.user && (
-                <div >
+                <div className="button">
                   Hi {this.props.auth.user.username}
                 </div>
               )}
@@ -46,16 +49,16 @@ export default class Navbar extends Component {
             <div>
               {!this.props.auth.isAuthenticated && (
                 <div>
-                  <a href="/register">
-                    <strong>Register</strong>
+                  <a href="/register" className="button">
+                    Register
                   </a>
-                  <a href="/login" className="button is-light">
-                    Log in
+                  <a href="/login" className="button">
+                    Login
                     </a>
                 </div>
               )}
               {this.props.auth.isAuthenticated && (
-                <div className="logout_button" onClick={this.handleLogOut}>logout</div>
+                <div className="button" onClick={this.handleLogOut}>logout</div>
               )}
             </div>
           </div>

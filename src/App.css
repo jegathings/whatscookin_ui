@@ -3,7 +3,9 @@ h1 {
 }
 .title{
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 nav{
   display:flex;
@@ -32,8 +34,8 @@ nav{
   display:flex;
   flex-direction: column;
   border-style: solid;
-  border-color: blue;
-  margin: 5px 0px;
+  padding: 15px 0px 15px 10px;
+  width: 10%;
   border-radius: 25px;
 }
 /* .navbar_sub_item{
@@ -47,13 +49,6 @@ nav{
 .panel_c{
   display:flex;
   flex-direction: column;
-}
-
-.panel_col {
-  display:flex;
-  flex-direction: column;
-  border-style: solid;
-  border-color: black;
 }
 .index_panel{
   display: flex;
@@ -106,31 +101,35 @@ nav{
 .recipe_card_buttons{
   display:flex;
   flex-direction:row;
+  margin: 10px 10px;
   height: 10%;
+  width: 100%;
 }
-.create_input{
+.medium_input{
+  width: 300px;
+}
+.large_input{
   width: 600px;
+}
+.large_textarea{
+  width: 600px;
+  height: 400px;
 }
 .create_textarea{
   width: 600px;
   height: 300px;
 }
-.panel_col button{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 205px;
-}
 .button{
   display:flex;
   justify-content: center;
   align-items: center;
-  background-color: blue;
-  width: 60px;
-  max-height: 30px;
+  margin: 1px 0px;
+  border-radius: 25px;
+  background-color: #924013;
+  width: 90%;
 }
 .button:hover{
-  background-color: yellow;
+  background-color: #907668;
 }
 .product-title {
   font-weight: bold;
@@ -156,8 +155,6 @@ nav{
   padding-bottom: 3em;
 }
 .view_container{
-  border-style: solid;
-  border-color: black;
   padding: 30px 30px;
   width:70%;
 }

@@ -65,7 +65,7 @@ export default (props) => {
                                 type="text"
                                 name="name"
                                 id="name"
-                                className="create_input"
+                                className="large_input"
                                 value={recipe.name}
                                 onChange={handleChange}
                             /><br />
@@ -75,7 +75,7 @@ export default (props) => {
                             <input
                                 type="text"
                                 name="description"
-                                className="create_input"
+                                className="large_input"
                                 value={recipe.description}
                                 onChange={handleChange}
                             /><br />
@@ -84,7 +84,7 @@ export default (props) => {
                             <label htmlFor="ingredients">Ingredients</label><br />
                             <textarea
                                 name="ingredients"
-                                className="create_input"
+                                className="large_textarea"
                                 value={recipe.ingredients}
                                 onChange={handleChange}
                             /><br />
@@ -94,7 +94,7 @@ export default (props) => {
                             <textarea
                                 name="directions"
                                 value={recipe.directions}
-                                className="create_input"
+                                className="large_textarea"
                                 onChange={handleChange}
                             /><br />
                         </div>
@@ -103,7 +103,7 @@ export default (props) => {
                             <input
                                 type="text"
                                 name="image"
-                                className="create_input"
+                                className="large_input"
                                 value={recipe.image}
                                 onChange={handleChange}
                             /><br />
@@ -113,18 +113,18 @@ export default (props) => {
                             <input
                                 type="text"
                                 name="url"
-                                className="create_input"
+                                className="large_input"
                                 value={recipe.url}
                                 onChange={handleChange}
                             /><br />
                         </div>
                         <div className="panel_c">
-                            <button
+                        <div className="button"
                                 onClick={() => {
                                     console.log("Clicked Submit");
                                     handleUpdate(recipe);
                                 }}
-                            >Submit</button>
+                            >Submit</div>
                         </div>
                     </div>
                 </Fragment>

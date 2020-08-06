@@ -70,8 +70,8 @@ class LogIn extends Component {
                   className="input" 
                   type="text"
                   id="username"
-                  aria-describedby="usernameHelp"
                   placeholder="Enter username or email"
+                  className="medium_input"
                   value={this.state.username}
                   onChange={this.onInputChange}
                 />
@@ -83,6 +83,8 @@ class LogIn extends Component {
                   type="password"
                   id="password"
                   placeholder="Password"
+                  placeholder="Enter username or email"
+                  className="medium_input"
                   value={this.state.password}
                   onChange={this.onInputChange}
                 />
@@ -97,11 +99,9 @@ class LogIn extends Component {
               </p>
             </div>
             <div className="field">
-              <p className="control">
-                <button className="button is-success">
-                  Login
-                </button>
-              </p>
+                <div className="button" onClick={this.handleSubmit}>
+                  Submit
+                </div>
             </div>
           </form>
         </div>

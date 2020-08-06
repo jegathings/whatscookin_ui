@@ -77,57 +77,56 @@ class Register extends Component {
           <FormErrors formerrors={this.state.errors} />
 
           <form onSubmit={this.handleSubmit}>
-            <div className="panel_row">
+            <div className="panel_c">
               <span>username</span>
               <input
                 className="input"
                 type="text"
                 id="username"
-                aria-describedby="userNameHelp"
+                className="large_input"
                 value={this.state.username}
                 onChange={this.handleChange}
               />
             </div>
-            <div className="panel_row">
+            <div className="panel_c">
               <span>email</span>
               <input
                 className="input"
                 type="email"
                 id="email"
-                aria-describedby="emailHelp"
-                placeholder="Enter email"
+                className="large_input"
                 value={this.state.email}
                 onChange={this.handleChange}
               />
             </div>
-            <div className="panel_row">
+            <div className="panel_c">
               <span>password</span>
               <input
                 className="input"
                 type="password"
                 id="password"
-                placeholder="Password"
+                className="large_input"
                 value={this.state.password}
                 onChange={this.handleChange}
               />
             </div>
-            <div className="panel_row">
+            <div className="panel_c">
               <span>confirm password</span>
               <input
                 className="input"
                 type="password"
                 id="confirmpassword"
-                placeholder="Confirm password"
+                className="large_input"
                 value={this.state.confirmpassword}
                 onChange={this.handleChange}
               />
             </div>
-            <div className="panel_row">
+            <div className="panel_c">
               <button className="button is-success">
                 Register
                 </button>
             </div>
-            <div className="panel_row">
+            <div className="panel_c">
               <a href="/forgotpassword">Forgot password?</a>
             </div>
           </form>

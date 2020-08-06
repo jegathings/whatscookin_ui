@@ -28,7 +28,8 @@ export default (props) => {
 
     return (
         <Fragment>
-            <h3>{formData.formTitle}</h3>
+            <h1>{formData.formTitle}</h1>
+            <h4><a href="/">Home</a></h4>
             <div>
                 <div className="panel_c">
                     <label htmlFor="name">Name</label>
@@ -90,12 +91,12 @@ export default (props) => {
                     /><br />
                 </div>
                 <div className="panel_c">
-                    <button
+                    <div className="button"
                         onClick={() => {
                             console.log("Clicked Submit");
                             handleCreate(formData);
                         }}
-                    >Submit</button>
+                    >Submit</div>
                 </div>
             </div>
         </Fragment>
