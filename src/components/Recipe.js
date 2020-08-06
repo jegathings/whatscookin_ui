@@ -29,67 +29,73 @@ export default (props) => {
     return (
         <Fragment>
             <h3>{formData.formTitle}</h3>
-            <div className="container">
-                <div className="panel_col">
-                    <label htmlFor="name">Name</label><br />
+            <div>
+                <div className="panel_c">
+                    <label htmlFor="name">Name</label>
                     <input
                         type="text"
                         name="name"
                         id="name"
+                        className="create_input"
                         value={formData.name}
                         onChange={handleChange}
-                    /><br />
+                    />
                 </div>
-                <div className="panel_col">
+                <div className="panel_c">
                     <label htmlFor="description">Description</label><br />
                     <input
                         type="text"
                         name="description"
+                        className="create_input"
                         value={formData.description}
                         onChange={handleChange}
                     /><br />
                 </div>
-                <div className="panel_col">
+                <div className="panel_c">
                     <label htmlFor="ingredients">Ingredients</label><br />
                     <textarea
                         name="ingredients"
+                        className="create_textarea"
                         value={formData.ingredients}
                         onChange={handleChange}
                     /><br />
                 </div>
-                <div className="panel_col">
+                <div className="panel_c">
                     <label htmlFor="directions">Directions</label><br />
                     <textarea
                         name="directions"
+                        className="create_textarea"
                         value={formData.directions}
                         onChange={handleChange}
                     /><br />
                 </div>
-                <div className="panel_col">
+                <div className="panel_c">
                     <label htmlFor="images">Image</label><br />
                     <input
                         type="text"
                         name="image"
+                        className="create_input"
                         value={formData.image}
                         onChange={handleChange}
                     /><br />
                 </div>
-                <div className="panel_col">
+                <div className="panel_c">
                     <label htmlFor="url">URL</label><br />
                     <input
                         type="text"
                         name="url"
+                        className="create_input"
                         value={formData.url}
                         onChange={handleChange}
                     /><br />
                 </div>
-                <div className="panel_col">
+                <div className="panel_c">
                     <button
                         onClick={() => {
                             console.log("Clicked Submit");
                             handleCreate(formData);
                         }}
-                    >&#10004;</button>
+                    >Submit</button>
                 </div>
             </div>
         </Fragment>

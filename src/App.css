@@ -10,39 +10,110 @@ nav{
   flex-direction: row;
   justify-items: right;
   align-items: right;
-  height: 50px;
-  border-style: solid;
-  border-color: black;
+  height: 75px;
 }
-.button{
+.logout_button{
   width: 100px;
   height: 20px;
-  border-style: solid;
-  border-color: black;
+  margin: 0px 0px 0px 50px;
+}
+.create_button{
+  width: 100px;
+  height: 25px;
+  padding: 0px 20px;
+  margin: 10px 0px;
+  border-radius: 25px;
+}
+.navbar_container{
+  display:flex;
+  justify-content: space-evenly;
 }
 .navbar_item{
   display:flex;
   flex-direction: column;
   border-style: solid;
-  border-color: black;
+  border-color: blue;
+  margin: 5px 0px;
+  border-radius: 25px;
 }
-.navbar_sub_item{
+/* .navbar_sub_item{
   border-style: solid;
   border-color:red;
-}
+} */
 .panel_row{
   display:flex;
   flex-direction: row;
 }
-.panel_col {
+.panel_c{
   display:flex;
   flex-direction: column;
 }
-.panel_col input, textarea{
-  width: 800px;
+
+.panel_col {
+  display:flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: black;
 }
-.field input{
-  width: 400px;
+.index_panel{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.recipe_panel{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 30px 100px;
+}
+.recipe_card{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #F7CE68;
+  background-image: linear-gradient(0deg, #F7CE68 0%, #FBAB7E 1%);
+  height: 500px;
+  width: 250px;
+  margin: 10px 10px;
+  border-radius: 25px;
+  box-shadow: 5px 10px #fb8a49;
+  border-style: solid;
+  border-color:rgb(158, 35, 35);
+}
+.recipe_card_title{
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
+  height: 30%;
+  width: auto;
+  text-align: center;
+  margin: 10px 0px;
+  width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+.recipe_card_img{
+  height: 50%;
+  width: 90%;
+  border-radius: 25px;
+}
+.recipe_card_buttons{
+  display:flex;
+  flex-direction:row;
+  height: 10%;
+}
+.create_input{
+  width: 600px;
+}
+.create_textarea{
+  width: 600px;
+  height: 300px;
 }
 .panel_col button{
   display: flex;
@@ -83,6 +154,7 @@ nav{
 
 body {
   visibility: visible !important;
+  background-color: #FBAB7E;
 }
 
 

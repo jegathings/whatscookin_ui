@@ -39,12 +39,12 @@ class App extends Component {
       console.log(session);
       const user = await Auth.currentAuthenticatedUser();
       this.setUser(user);
-    } catch(error) {
+    } catch (error) {
       if (error !== 'No current user') {
         console.log(error);
       }
     }
-  
+
     this.setState({ isAuthenticating: false });
   }
 
@@ -61,19 +61,21 @@ class App extends Component {
         <Router>
           <div>
             <Navbar auth={authProps} />
-            <Switch>
-              <Route exact path="/" render={(props) => <Home {...props} auth={authProps} />} />
-              <Route exact path="/create" render={(props) => <Recipe method="POST" {...props} auth={authProps} formData={{ ...{}, formTitle: "Create Recipe" }}/>} />
-              <Route exact path="/edit/:recipe_id" render={(props) => <EditRecipe method="PUT" {...props} auth={authProps} formData={{ ...{}, formTitle: "Edit    Recipe" }}/>} />
-              <Route exact path="/view/:recipe_id" render={(props) => <ViewRecipe {...props} auth={authProps} />} />
-              <Route exact path="/login" render={(props) => <LogIn {...props} auth={authProps} />} />
-              <Route exact path="/register" render={(props) => <Register {...props} auth={authProps} />} />
-              <Route exact path="/forgotpassword" render={(props) => <ForgotPassword {...props} auth={authProps} />} />
-              <Route exact path="/forgotpasswordverification" render={(props) => <ForgotPasswordVerification {...props} auth={authProps} />} />
-              <Route exact path="/changepassword" render={(props) => <ChangePassword {...props} auth={authProps} />} />
-              <Route exact path="/changepasswordconfirmation" render={(props) => <ChangePasswordConfirm {...props} auth={authProps} />} />
-              <Route exact path="/welcome" render={(props) => <Welcome {...props} auth={authProps} />} />
-            </Switch>
+            <div className="index_panel">
+              <Switch>
+                <Route exact path="/" render={(props) => <Home {...props} auth={authProps} />} />
+                <Route exact path="/create" render={(props) => <Recipe method="POST" {...props} auth={authProps} formData={{ ...{}, formTitle: "Create Recipe" }} />} />
+                <Route exact path="/edit/:recipe_id" render={(props) => <EditRecipe method="PUT" {...props} auth={authProps} formData={{ ...{}, formTitle: "Edit    Recipe" }} />} />
+                <Route exact path="/view/:recipe_id" render={(props) => <ViewRecipe {...props} auth={authProps} />} />
+                <Route exact path="/login" render={(props) => <LogIn {...props} auth={authProps} />} />
+                <Route exact path="/register" render={(props) => <Register {...props} auth={authProps} />} />
+                <Route exact path="/forgotpassword" render={(props) => <ForgotPassword {...props} auth={authProps} />} />
+                <Route exact path="/forgotpasswordverification" render={(props) => <ForgotPasswordVerification {...props} auth={authProps} />} />
+                <Route exact path="/changepassword" render={(props) => <ChangePassword {...props} auth={authProps} />} />
+                <Route exact path="/changepasswordconfirmation" render={(props) => <ChangePasswordConfirm {...props} auth={authProps} />} />
+                <Route exact path="/welcome" render={(props) => <Welcome {...props} auth={authProps} />} />
+              </Switch>
+            </div>
             <Footer />
           </div>
         </Router>

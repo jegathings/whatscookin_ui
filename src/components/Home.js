@@ -20,15 +20,15 @@ export default function Home(props) {
         console.log("%cHome Error", "color: red");
         console.log(error);
       });
-    console.log("%cend Home getInfo","color: red");
+    console.log("%cend Home getInfo", "color: red");
   }
 
   React.useEffect(() => {
     console.log("%cUse Effect", "color: green");
     console.log("%cUser", "color: green", props.auth.user);
     console.log("%cProps", "color: green", props);
-    console.log("%cAuthenticated","color:green", props.auth.isAuthenticated);
-   if (props.auth.isAuthenticated && props.auth.user && props.auth.user.attributes)
+    console.log("%cAuthenticated", "color:green", props.auth.isAuthenticated);
+    if (props.auth.isAuthenticated && props.auth.user && props.auth.user.attributes)
       getInfo()
   }, [props.auth.isAuthenticated]);
 
@@ -54,31 +54,29 @@ export default function Home(props) {
 
   return (
     <Fragment>
-      <div className="container">
+      <div className="recipe_panel">
         {
           recipes ?
             recipes.map((recipe) => {
               return (
-                <div key={recipe.recipe_id}>
-                  <div>
-                    <div><a href={`/view/${recipe.recipe_id}`}>{recipe.name}</a></div>
-                    <div className="panel_row">
-                      <div className="button" onClick={() => {
-                        console.log("Clicked Edit");
-                        props.history.push(`/edit/${recipe.recipe_id}`);
-                      }
-                      }>Edit</div>
-                      <button
-                        className="button"
-                        onClick={() => {
-                          handleDelete(recipe);
+                <div key={recipe.recipe_id} className="recipe_card">
+                  <div className="recipe_card_title">
+                    <h1><a href={recipe.url} target="_blank">{recipe.name}</a></h1>
+                  </div>
+                  <img src={recipe.image} className="recipe_card_img" />
+                  <div className="recipe_card_buttons">
+                    <div className="button" onClick={() => {
+                      console.log("Clicked Edit");
+                      props.history.push(`/edit/${recipe.recipe_id}`);
+                    }
+                    }>Edit</div>
+                    <button
+                      className="button"
+                      onClick={() => {
+                        handleDelete(recipe);
 
-                        }}
-                      >&#10007;</button>
-
-
-
-                    </div>
+                      }}
+                    >Delete</button>
                   </div>
                 </div>
               )
@@ -86,6 +84,6 @@ export default function Home(props) {
             : ""
         }
       </div>
-    </Fragment>
+    </Fragment >
   )
 }

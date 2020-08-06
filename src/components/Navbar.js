@@ -25,25 +25,25 @@ export default class Navbar extends Component {
         <div className="title">
           <h1><a href="/">Whats Cookin</a></h1>
         </div>
-        <nav >
-          <div className="navbar_sub_item">
+        <nav className="navbar_container">
+          <div className="navbar_item">
             {
               this.props.auth.isAuthenticated && (
-                <a href="/create" className="button is-light">
+                <a href="/create" className="create_button">
                   Create Recipe
                 </a>
               )
             }
           </div>
           <div className="navbar_item">
-            <div className="navbar_sub_item">
+            <div >
               {this.props.auth.isAuthenticated && this.props.auth.user && (
                 <div >
-                  Hello {this.props.auth.user.username}
+                  Hi {this.props.auth.user.username}
                 </div>
               )}
             </div>
-            <div className="navbar_sub_item">
+            <div>
               {!this.props.auth.isAuthenticated && (
                 <div>
                   <a href="/register">
@@ -55,7 +55,7 @@ export default class Navbar extends Component {
                 </div>
               )}
               {this.props.auth.isAuthenticated && (
-                <div className="button" onClick={this.handleLogOut}>logout</div>
+                <div className="logout_button" onClick={this.handleLogOut}>logout</div>
               )}
             </div>
           </div>
