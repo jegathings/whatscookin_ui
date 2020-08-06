@@ -12,13 +12,14 @@ export default (props) => {
     }
 
     const handleCreate = async (data) => {
-        console.log("Create recipe",{ ...data, email: props.auth.user.attributes.email });
+        const recipe = { ...data, cognito_id: props.auth.user.attributes.sub };
+        console.log("Create recipe", recipe);
         await fetch(`${config.api.invokeUrl}${config.app}`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
             },
-            body: JSON.stringify({ ...data, email: props.auth.user.attributes.email })
+            body: JSON.stringify(recipe)
         })
             .then(response => console.log(response))
             .catch((error) => console.log(error));

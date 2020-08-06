@@ -7,10 +7,10 @@ export default function Home(props) {
   const getInfo = async () => {
     console.log("start Home getInfo");
     console.log("Is authenticated", props.auth.isAuthenticated);
-    const email = props.auth.user.attributes.email;
-    console.log("Email", email);
-    console.log("Encode Url", encodeURI(`${config.api.invokeUrl}${config.users}/${email}`));
-    await fetch(encodeURI(`${config.api.invokeUrl}${config.users}/${email}`))
+    const cognito_id = props.auth.user.attributes.sub;
+    console.log("Email", cognito_id);
+    console.log("Encode Url", encodeURI(`${config.api.invokeUrl}${config.users}/${cognito_id}`));
+    await fetch(encodeURI(`${config.api.invokeUrl}${config.users}/${cognito_id}`))
       .then(response => response.json())
       .then(recipes => {
         console.log("Recipe", recipes);
@@ -33,10 +33,10 @@ export default function Home(props) {
   const handleDelete = async (recipe) => {
     console.log("Start handleDelete");
     console.log("Recipe", recipe);
-    const email = recipe.user_id;
-    const URL = `${config.api.invokeUrl}${config.app}/${email}/${recipe.recipe_id}`;
+    const cognito_id = recipe.user_id;
+    const URL = `${config.api.invokeUrl}${config.app}/${cognito_id}/${recipe.recipe_id}`;
     console.log("URL", URL);
-    await fetch(`${config.api.invokeUrl}${config.app}/${email}/${recipe.recipe_id}`,
+    await fetch(`${config.api.invokeUrl}${config.app}/${cognito_id}/${recipe.recipe_id}`,
       {
         method: 'DELETE',
         headers: {

@@ -11,10 +11,10 @@ export default (props) => {
     const getInfo = async () => {
         console.log("start EditRecipe getInfo");
         console.log("recipe_id",recipe_id);
-        const email = props.auth.user.attributes.email
-        const URL = `${config.api.invokeUrl}${config.app}/${email}/${recipe_id}`;
+        const cognito_id = props.auth.user.attributes.sub
+        const URL = `${config.api.invokeUrl}${config.app}/${cognito_id}/${recipe_id}`;
         console.log("Url", URL);
-        await fetch(`${config.api.invokeUrl}${config.app}/${email}/${recipe_id}`)
+        await fetch(`${config.api.invokeUrl}${config.app}/${cognito_id}/${recipe_id}`)
         .then( response => response.json())
         .then( recipe =>{
             console.log("Recipe", recipe);
@@ -35,7 +35,7 @@ export default (props) => {
 
     const handleUpdate = async (data) => {
         console.log("start handle update");
-        const input = { ...data, email: props.auth.user.attributes.email }
+        const input = { ...data, cognito_id: props.auth.user.attributes.cognito_id }
         console.log("Input", input);
         console.log("URL", url);
         await fetch(url, {
@@ -126,18 +126,3 @@ export default (props) => {
         </>
     );
 };
-    // React.useEffect(() => {
-    //     console.log("Start Edit Recipe");
-    //     const email = props.auth.user.attributes.email;
-    //     console.log("Recipe Id", recipe_id);
-    //     console.log("URL", `${config.api.invokeUrl}${config.app}/${email}/${recipe_id}`);
-    //     const onload = async () => {
-    //         const response = await fetch(`${config.api.invokeUrl}${config.app}/${email}/${recipe_id}`)
-    //             .catch((error) => console.log(error))
-    //         const formData = response.json();
-    //         console.log("Form Data", formData);
-    //         setFormData(formData);
-    //     }
-    //     onload()
-    //     console.log("End Edit Recipe");
-    // }, [recipe_id]);

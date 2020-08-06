@@ -11,8 +11,8 @@ export default function ViewRecipe(props) {
     const getInfo = async () => {
         console.log("start View getInfo");
         console.log("recipe_id", recipe_id);
-        const email = props.auth.user.attributes.email
-        const URL = `${config.api.invokeUrl}${config.app}/${email}/${recipe_id}`;
+        const cognito_id = props.auth.user.attributes.sub
+        const URL = `${config.api.invokeUrl}${config.app}/${cognito_id}/${recipe_id}`;
         console.log("Url", URL);
         const response = await fetch(URL)
             .catch((error) => console.log(error))
@@ -59,49 +59,3 @@ export default function ViewRecipe(props) {
         </>
     )
 }
-
-
-// const getInfo = async () => {
-//     console.log("start view recipe getInfo");
-//     console.log("recipe_id", recipe_id);
-//     const email = props.auth.user.attributes.email
-//     const URL = `${config.api.invokeUrl}${config.app}/${email}/${recipe_id}`;
-//     console.log("Url", URL);
-//     const response = await fetch(`${config.api.invokeUrl}${config.app}`)
-//         .catch((error) => console.log(error))
-//     const recipe = await response.json();
-//     console.log("Recipe", recipe[0]);
-//     console.log("Name", { ...recipe[0] });
-//     setRecipe({ ...recipe[0] });
-//     console.log("end view recipe getInfo");
-// }
-
-// React.useEffect(() => {
-//     getInfo()
-// }, [recipe_id]);
-
-// return (
-//     <Fragment>
-//         <div className="container">
-//             <h4><a href="/">Home</a></h4>
-//             <div className="panel_col">
-//                 <div>Recipe Name</div>
-//                 <div><a href={recipe.url}>{recipe.name}</a></div>
-//             </div>
-//             <div className="panel_col">
-//                 <img src={recipe.image} alt={recipe.name} />
-//             </div>
-//             <div className="panel_col">
-//                 <div>{recipe.description}</div>
-//             </div>
-//             <div className="panel_col">
-//                 <div>Ingredients</div>
-//                 <div>{recipe.ingredients}</div>
-//             </div>
-//             <div className="panel_col">
-//                 <div>Directions</div>
-//                 <div>{recipe.directions}</div>
-//             </div>
-//         </div>
-//     </Fragment>
-// )
