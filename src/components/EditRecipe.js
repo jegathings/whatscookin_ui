@@ -59,66 +59,72 @@ export default (props) => {
                     <h3>{formData.formTitle}</h3>
                     <h4><a href="/">Home</a></h4>
                     <div className="container">
-                        <div className="panel_col">
+                        <div className="panel_c">
                             <label htmlFor="name">Name</label><br />
                             <input
                                 type="text"
                                 name="name"
                                 id="name"
+                                className="create_input"
                                 value={recipe.name}
                                 onChange={handleChange}
                             /><br />
                         </div>
-                        <div className="panel_col">
+                        <div className="panel_c">
                             <label htmlFor="description">Description</label><br />
                             <input
                                 type="text"
                                 name="description"
+                                className="create_input"
                                 value={recipe.description}
                                 onChange={handleChange}
                             /><br />
                         </div>
-                        <div className="panel_col">
+                        <div className="panel_c">
                             <label htmlFor="ingredients">Ingredients</label><br />
                             <textarea
                                 name="ingredients"
+                                className="create_input"
                                 value={recipe.ingredients}
                                 onChange={handleChange}
                             /><br />
                         </div>
-                        <div className="panel_col">
+                        <div className="panel_c">
                             <label htmlFor="directions">Directions</label><br />
                             <textarea
                                 name="directions"
                                 value={recipe.directions}
+                                className="create_input"
                                 onChange={handleChange}
                             /><br />
                         </div>
-                        <div className="panel_col">
+                        <div className="panel_c">
                             <label htmlFor="images">Image</label><br />
                             <input
                                 type="text"
                                 name="image"
+                                className="create_input"
                                 value={recipe.image}
                                 onChange={handleChange}
                             /><br />
                         </div>
-                        <div className="panel_col">
+                        <div className="panel_c">
                             <label htmlFor="url">URL</label><br />
                             <input
                                 type="text"
                                 name="url"
+                                className="create_input"
                                 value={recipe.url}
                                 onChange={handleChange}
                             /><br />
                         </div>
-                        <div className="panel_col">
+                        <div className="panel_c">
                             <button
                                 onClick={() => {
                                     console.log("Clicked Submit");
                                     handleUpdate(recipe);
                                 }}
-                            >&#10004;</button>
+                            >Submit</button>
                         </div>
                     </div>
                 </Fragment>

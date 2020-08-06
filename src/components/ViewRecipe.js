@@ -32,24 +32,23 @@ export default function ViewRecipe(props) {
         {
             recipe &&
             <Fragment>
-                <div className="container">
-                    <h4><a href="/">Home</a></h4>
-                    <div className="panel_col">
-                        <div><h1>Recipe Name</h1></div>
-                        <div><a href={recipe.url}>{recipe.name}</a></div>
+                <h1><a href="/">Home</a></h1>
+                <div className="view_container">
+                    <div className="panel_c">
+                        <div><a href={recipe.url}><h1>{recipe.name}</h1></a></div>
                     </div>
-                    <div className="panel_col">
+                    <div className="panel_c">
                         <img src={recipe.image} alt={recipe.name} />
                     </div>
-                    <div className="panel_col">
+                    <div className="panel_c">
                         <div><h1>Description</h1></div>
                         <div>{recipe.description}</div>
                     </div>
-                    <div className="panel_col">
+                    <div className="panel_c">
                         <div><h1>Ingredients</h1></div>
                         <div>{recipe.ingredients}</div>
                     </div>
-                    <div className="panel_col">
+                    <div className="panel_c">
                         <div><h1>Directions</h1></div>
                         <div>{recipe.directions}</div>
                     </div>

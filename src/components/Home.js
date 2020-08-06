@@ -70,13 +70,19 @@ export default function Home(props) {
                       props.history.push(`/edit/${recipe.recipe_id}`);
                     }
                     }>Edit</div>
-                    <button
+                    <div
                       className="button"
                       onClick={() => {
                         handleDelete(recipe);
 
                       }}
-                    >Delete</button>
+                    >Delete</div>
+                    <div
+                      className="button"
+                      onClick={ () => {
+                        props.history.push(`/view/${recipe.recipe_id}`)
+                      }}
+                      >View</div>
                   </div>
                 </div>
               )

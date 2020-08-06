@@ -125,8 +125,12 @@ nav{
   display:flex;
   justify-content: center;
   align-items: center;
+  background-color: blue;
   width: 60px;
   max-height: 30px;
+}
+.button:hover{
+  background-color: yellow;
 }
 .product-title {
   font-weight: bold;
@@ -151,7 +155,12 @@ nav{
 .features {
   padding-bottom: 3em;
 }
-
+.view_container{
+  border-style: solid;
+  border-color: black;
+  padding: 30px 30px;
+  width:70%;
+}
 body {
   visibility: visible !important;
   background-color: #FBAB7E;
