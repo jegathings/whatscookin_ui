@@ -5,37 +5,37 @@ export default function Home(props) {
   const [recipes, setRecipes] = React.useState(null);
 
   const getInfo = async () => {
-    console.log("start Home getInfo");
-    console.log("Is authenticated", props.auth.isAuthenticated);
+    console.log("%cstart Home getInfo", "color: red");
+    console.log("%cIs authenticated", "color: red", props.auth.isAuthenticated);
     const cognito_id = props.auth.user.attributes.sub;
-    console.log("Email", cognito_id);
-    console.log("Encode Url", encodeURI(`${config.api.invokeUrl}${config.users}/${cognito_id}`));
+    console.log("%ccognito id", "color: red", cognito_id);
+    console.log("%cEncode Url", "color: red", encodeURI(`${config.api.invokeUrl}${config.users}/${cognito_id}`));
     await fetch(encodeURI(`${config.api.invokeUrl}${config.users}/${cognito_id}`))
       .then(response => response.json())
       .then(recipes => {
-        console.log("Recipe", recipes);
+        console.log("%cRecipe", "color: red", recipes);
         setRecipes(recipes);
       })
       .catch((error) => {
-        console.log("Home Error");
+        console.log("%cHome Error", "color: red");
         console.log(error);
       });
-    console.log("end Home getInfo");
+    console.log("%cend Home getInfo","color: red");
   }
 
   React.useEffect(() => {
-    console.log("Use Effect");
-    console.log("User", props.auth.user);
+    console.log("%cUse Effect", "color: green");
+    console.log("%cUser", "color: green", props.auth.user);
     if (props.auth.isAuthenticated && props.auth.user && props.auth.user.attributes)
       getInfo()
-  }, [props.auth.isAuthenticated,]);
+  }, [props.auth.isAuthenticated]);
 
   const handleDelete = async (recipe) => {
-    console.log("Start handleDelete");
-    console.log("Recipe", recipe);
+    console.log("%cStart handleDelete", "color: blue");
+    console.log("%cRecipe", "color: blue", recipe);
     const cognito_id = recipe.user_id;
     const URL = `${config.api.invokeUrl}${config.app}/${cognito_id}/${recipe.recipe_id}`;
-    console.log("URL", URL);
+    console.log("%cURL", "color: blue", URL);
     await fetch(`${config.api.invokeUrl}${config.app}/${cognito_id}/${recipe.recipe_id}`,
       {
         method: 'DELETE',
@@ -45,8 +45,9 @@ export default function Home(props) {
         body: JSON.stringify(recipe),
       }
     )
-    console.log("End handleDelete");
+    console.log("%cEnd handleDelete", "color: blue");
     props.history.push("/");
+    props.history.go();
   }
 
   return (

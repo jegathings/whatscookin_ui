@@ -1,3 +1,5 @@
+
+import { useHistory} from 'react-router';
 import React, { Component } from 'react';
 import { Auth } from 'aws-amplify';
 
@@ -10,7 +12,9 @@ export default class Navbar extends Component {
       this.props.auth.setAuthStatus(false);
       this.props.auth.setUser(null);
       console.log("Auth",this.props.auth);
+      console.log("Props", this.props);
       console.log("End Logout");
+      window.location.reload();
     } catch (error) {
       console.log(error.message);
     }
