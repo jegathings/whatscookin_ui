@@ -41,6 +41,9 @@ nav{
 .panel_col input, textarea{
   width: 800px;
 }
+.field input{
+  width: 400px;
+}
 .panel_col button{
   display: flex;
   justify-content: center;

@@ -8,27 +8,34 @@ export default function Home(props) {
     console.log("start Home getInfo");
     console.log("Is authenticated", props.auth.isAuthenticated);
     const email = props.auth.user.attributes.email;
-    console.log("Email",email);
-    console.log("Url", `${config.api.invokeUrl}${config.users}/${email}`);
-    const response = await fetch(`${config.api.invokeUrl}${config.users}/${email}`)
-      .catch((error) => console.log(error))
-    const recipes = await response.json();
-    console.log("Recipes", recipes);
-    setRecipes(recipes);
+    console.log("Email", email);
+    console.log("Encode Url", encodeURI(`${config.api.invokeUrl}${config.users}/${email}`));
+    await fetch(encodeURI(`${config.api.invokeUrl}${config.users}/${email}`))
+      .then(response => response.json())
+      .then(recipes => {
+        console.log("Recipe", recipes);
+        setRecipes(recipes);
+      })
+      .catch((error) => {
+        console.log("Home Error");
+        console.log(error);
+      });
     console.log("end Home getInfo");
   }
 
   React.useEffect(() => {
-    if(props.auth.isAuthenticated)
+    console.log("Use Effect");
+    console.log("User", props.auth.user);
+    if (props.auth.isAuthenticated && props.auth.user && props.auth.user.attributes)
       getInfo()
-  }, []);
+  }, [props.auth.isAuthenticated,]);
 
   const handleDelete = async (recipe) => {
     console.log("Start handleDelete");
     console.log("Recipe", recipe);
-    const email= recipe.user_id;
+    const email = recipe.user_id;
     const URL = `${config.api.invokeUrl}${config.app}/${email}/${recipe.recipe_id}`;
-    console.log("URL",URL);
+    console.log("URL", URL);
     await fetch(`${config.api.invokeUrl}${config.app}/${email}/${recipe.recipe_id}`,
       {
         method: 'DELETE',
@@ -73,7 +80,7 @@ export default function Home(props) {
                 </div>
               )
             })
-            :""
+            : ""
         }
       </div>
     </Fragment>
