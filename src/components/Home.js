@@ -26,7 +26,9 @@ export default function Home(props) {
   React.useEffect(() => {
     console.log("%cUse Effect", "color: green");
     console.log("%cUser", "color: green", props.auth.user);
-    if (props.auth.isAuthenticated && props.auth.user && props.auth.user.attributes)
+    console.log("%cProps", "color: green", props);
+    console.log("%cAuthenticated","color:green", props.auth.isAuthenticated);
+   if (props.auth.isAuthenticated && props.auth.user && props.auth.user.attributes)
       getInfo()
   }, [props.auth.isAuthenticated]);
 
