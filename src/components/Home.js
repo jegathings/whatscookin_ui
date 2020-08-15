@@ -28,8 +28,7 @@ export default function Home(props) {
     console.log("%cUser", "color: green", props.auth.user);
     console.log("%cProps", "color: green", props);
     console.log("%cAuthenticated", "color:green", props.auth.isAuthenticated);
-    if (props.auth.isAuthenticated && props.auth.user && props.auth.user.attributes)
-      getInfo()
+    getInfo()
   }, [props.auth.isAuthenticated]);
 
   const handleDelete = async (recipe) => {
@@ -79,10 +78,10 @@ export default function Home(props) {
                     >Delete</div>
                     <div
                       className="button"
-                      onClick={ () => {
+                      onClick={() => {
                         props.history.push(`/view/${recipe.recipe_id}`)
                       }}
-                      >View</div>
+                    >View</div>
                   </div>
                 </div>
               )
