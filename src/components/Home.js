@@ -28,7 +28,8 @@ export default function Home(props) {
     console.log("%cUser", "color: green", props.auth.user);
     console.log("%cProps", "color: green", props);
     console.log("%cAuthenticated", "color:green", props.auth.isAuthenticated);
-    getInfo()
+    if (props.auth.isAuthenticated && props.auth.user.attributes)
+      getInfo()
   }, [props.auth.isAuthenticated]);
 
   const handleDelete = async (recipe) => {
