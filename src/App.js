@@ -31,13 +31,31 @@ class App extends Component {
   setUser = user => {
     this.setState({ user: user });
   }
-
+  async componentWillMount(){
+    console.log("%cComponent will mount","color:yellow");
+  }
+  async componentDidCatch() {
+    console.log("%cComponent did catch","color:yellow");
+  }
+  async componentDidUpdate() {
+    console.log("%cComponent did update","color:yellow");
+  }
+  async componentWillUnmount() {
+    console.log("%cComponent will unmount","color:yellow");
+  }
+  async componentWillReceiveProps(){
+    console.log("%ccomponentWillReceiveProps","color:yellow");
+  }
   async componentDidMount() {
     try {
+      console.log("%cComponent did mount","color:yellow");
       const session = await Auth.currentSession();
       this.setAuthStatus(true);
-      console.log(session);
+      console.log("%cSession","color:yellow",session);
       const user = await Auth.currentAuthenticatedUser();
+      //    const cognito_id = props.auth.user.attributes.sub;
+      console.log("%cUser","color:yellow",user);
+      console.log("%cAttributes","color:yellow",user.attributes);
       this.setUser(user);
     } catch (error) {
       if (error !== 'No current user') {

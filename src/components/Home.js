@@ -28,7 +28,7 @@ export default function Home(props) {
     console.log("%cUser", "color: green", props.auth.user);
     console.log("%cProps", "color: green", props);
     console.log("%cAuthenticated", "color:green", props.auth.isAuthenticated);
-    if (props.auth.isAuthenticated && props.auth.user.attributes)
+    if (props.auth.isAuthenticated)
       getInfo()
   }, [props.auth.isAuthenticated]);
 
