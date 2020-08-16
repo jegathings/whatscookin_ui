@@ -24,7 +24,6 @@ export default class Navbar extends Component {
       <div>
         <div className="title">
           <h1>Whats Cookin</h1>
-          <h3>Bug Alert Hit refresh to force browser to reload.</h3>
         </div>
         <nav className="navbar_container">
           <div >
