@@ -1,22 +1,17 @@
 ## Whats Cookin
 
-A serveless cookbook app.
+Welcom to my cookbook app.  This project will help you keep track of your favorite recipes.
 
 ## Application Info
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Notes
+## Directions
 
-To run:
+1. Clone this repo
 
-### ``
-npm audit fix --force  from https://stackoverflow.com/questions/56057325/how-to-fix-typeerror-fsevents-is-not-a-constructor-react-error.
+2. npm install
 
-There's a bug when there are errors in the forgotpassword flow.
+3. run dev server with command "npm run dev"
 
-## Todo
-
-### ``
-./src/components/EditRecipe.js
-Attempted import error: 'useParams' is not exported from 'react-router-dom'.
+4. build final output with "npm run build"
