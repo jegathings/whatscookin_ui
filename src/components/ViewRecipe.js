@@ -35,7 +35,7 @@ export default function ViewRecipe(props) {
                 <h1><a href="/">Home</a></h1>
                 <div className="view_container">
                     <div className="panel_c">
-                        <div><a href={recipe.url}><h1>{recipe.name}</h1></a></div>
+                        <div><a href={recipe.url} target="_blank"><h1>{recipe.name}</h1></a></div>
                     </div>
                     <div className="panel_c">
                         <img src={recipe.image} alt={recipe.name} />

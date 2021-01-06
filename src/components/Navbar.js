@@ -7,13 +7,15 @@ export default class Navbar extends Component {
   handleLogOut = async event => {
     event.preventDefault();
     try {
-      console.log("Start Logout");
+      console.log("%cStart Logout","color:orange");
       Auth.signOut();
       this.props.auth.setAuthStatus(false);
       this.props.auth.setUser(null);
-      console.log("Auth", this.props.auth);
-      console.log("Props", this.props);
-      console.log("End Logout");
+      console.log("%cAuth", "color:orange", this.props.auth);
+      console.log("%cProps", "color:orange", this.props);
+      console.log("%cEnd Logout","color:orange");
+      this.props.history.push("/");
+      this.props.history.go();
       window.location.reload();
     } catch (error) {
       console.log(error.message);
